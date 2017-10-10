@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  mongo:
+    image: 'tutum/mongodb:3.2'
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      #- ALLOW_EMPTY_PASSWORD=yes
+      - MONGODB_PASS=traderpass
+      - MONGODB_USER=trader
+    ports:
+      - 27017:27017
+      - 28017:28017
+    volumes:
+      - mongo_data:/data/db'
+
+volumes:
+  mongo_data:
+    driver: local
